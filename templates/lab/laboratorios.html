@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+<!--  -->
+{% block content %}
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col justify-content-center mt-5 mb-5">
+      <h1>Informacion de Laboratorios</h1>
+      <div class="container-fluid border border-4 rounded">
+        <!-- TABLA -->
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Pais</th>
+              <th scope="col">Eliminar</th>
+              <th scope="col">Actualizar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for lab in labs %}
+            <tr>
+              {% for l in lab %}
+              <td scope="col">{{l}}</td>
+              <td scope="col">
+                <a class="btn btn-outline-danger">Eliminar</a>
+              </td>
+              <td scope="col">
+                <button class="btn btn-outline-primary">
+                  <a href="{% url 'editar_lab' %}">Actualizar</a>
+                </button>
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!--          -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
